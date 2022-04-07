@@ -151,6 +151,7 @@ function App() {
       description: [
         "Developed backend platform for financial products using TypeScript, Node.js and GraphQL",
         "Built frontend user interfaces for new products using React.js",
+        "Provisioned and maintained backend infrastructure using Terraform",
         "Collaborated with various teams to build a robust and scalable architecture",
       ],
     },
