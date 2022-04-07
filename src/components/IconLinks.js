@@ -6,7 +6,7 @@ function IconLinks({ icon, text, website }) {
       href={website}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex text-white space-x-4 text-xl items-center text-gray-400 cursor-pointer"
+      className="flex hover:text-white  space-x-4 text-xl items-center text-gray-400 cursor-pointer"
     >
       <FontAwesomeIcon icon={icon} />
       <p>{text}</p>

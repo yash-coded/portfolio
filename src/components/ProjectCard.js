@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import IconLinks from "./IconLinks";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function ProjectCard({ title, subtitle, techs, projectDetails }) {
   return (
@@ -14,7 +13,7 @@ function ProjectCard({ title, subtitle, techs, projectDetails }) {
       <div className="flex divide-x-2 divide-gray-400 mb-2">
         {techs.map((tech) => (
           <div className="pl-2 pr-2 first:pl-0">
-            <p className="">{tech}</p>
+            <p className="text-gray-300">{tech}</p>
           </div>
         ))}
       </div>
@@ -24,7 +23,7 @@ function ProjectCard({ title, subtitle, techs, projectDetails }) {
             target="_blank"
             rel="noopener noreferrer"
             href={project.website}
-            className="flex items-center space-x-2 cursor-pointer"
+            className="flex items-center space-x-2 cursor-pointer hover:text-white text-gray-300"
           >
             <FontAwesomeIcon icon={project.icon} />
             <p>{project.text}</p>

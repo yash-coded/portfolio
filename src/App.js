@@ -1,8 +1,8 @@
 import "./App.css";
 import SkillList from "./components/SkillList";
 import IconLinks from "./components/IconLinks";
+import WorkCard from "./components/WorkCard";
 import ProjectCard from "./components/ProjectCard";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faGlobeAmericas } from "@fortawesome/free-solid-svg-icons";
@@ -11,7 +11,7 @@ function App() {
   const skills = [
     {
       number: "01",
-      skill: "JavaScript",
+      skill: "TypeScript",
     },
     {
       number: "02",
@@ -23,15 +23,15 @@ function App() {
     },
     {
       number: "04",
-      skill: "Firebase",
+      skill: "GraphQL",
     },
     {
       number: "05",
-      skill: "WebSockets",
+      skill: "Terraform",
     },
     {
       number: "06",
-      skill: "NoSQL",
+      skill: "MongoDB",
     },
     {
       number: "07",
@@ -39,10 +39,58 @@ function App() {
     },
     {
       number: "08",
-      skill: "NGINX",
+      skill: "tsyringe",
     },
   ];
   const projects = [
+    {
+      title: "PayCA Financial",
+      subtitle:
+        "Frontend User Interface inspired by an Online Banking startup Neo.",
+      techs: ["React.js", "Redux", "Styled Components"],
+      projectDetails: [
+        {
+          icon: faGithub,
+          text: "Repo",
+          website: "https://github.com/yash-coded/payca-financial",
+        },
+        {
+          icon: faGlobeAmericas,
+          text: "Demo",
+          website: "https://quizzical-kalam-96cae2.netlify.app/signin",
+        },
+      ],
+    },
+    {
+      title: "StockScan",
+      subtitle:
+        "A SPA which provides key stats and latest news of any stock listed on NASDAQ and NYSE",
+      techs: ["React.js", "Tailwind CSS", "IEX Cloud (API)"],
+      projectDetails: [
+        {
+          icon: faGlobeAmericas,
+          text: "Demo",
+          website: "https://wonderful-yalow-ab659a.netlify.app",
+        },
+      ],
+    },
+    {
+      title: "Stock Charts",
+      subtitle: "Candlestick chart for any stock listed on NASDAQ",
+      techs: ["React.js", "react-stockcharts", "Fmp Cloud (API)"],
+      projectDetails: [
+        {
+          icon: faGithub,
+          text: "Repo",
+          website: "https://github.com/yash-coded/stock-charts",
+        },
+        {
+          icon: faGlobeAmericas,
+          text: "Demo",
+          website: "https://hopeful-raman-696513.netlify.app/",
+        },
+      ],
+    },
     {
       title: "DevChat",
       subtitle: "A chat application inspired by slack",
@@ -63,14 +111,9 @@ function App() {
     {
       title: "ISA SAIT",
       subtitle:
-        "A blog styled website for a student section of International Sociecty of Automation (ISA).",
+        "A blog styled website for a student section of International Society of Automation (ISA).",
       techs: ["React.js", "Strapi", "TailwindCSS"],
       projectDetails: [
-        {
-          icon: faGithub,
-          text: "Repo",
-          website: "https://github.com/yash-coded/isa-blog-frontend",
-        },
         {
           icon: faGlobeAmericas,
           text: "Demo",
@@ -94,6 +137,32 @@ function App() {
           text: "Demo",
           website: "https://romantic-montalcini-163457.netlify.app/",
         },
+      ],
+    },
+  ];
+
+  const works = [
+    {
+      companyName: "Neo Financial",
+      position: "Fullstack Developer",
+      website: "https://www.neofinancial.com/",
+      startDate: "June 2021",
+      endDate: "Present",
+      description: [
+        "Developed backend platform for financial products using TypeScript, Node.js and GraphQL",
+        "Built frontend user interfaces for new products using React.js",
+        "Collaborated with various teams to build a robust and scalable architecture",
+      ],
+    },
+    {
+      companyName: "Cattle Scan",
+      position: "Frontend Developer",
+      website: "https://www.cattlescan.ca/",
+      startDate: "January 2021",
+      endDate: "June 2021",
+      description: [
+        "Built complex Frontend Applications with React, Redux, TailwindCSS and ChakraUI.",
+        "Participated in daily SCRUM meetings and sprint reviews.",
       ],
     },
   ];
@@ -138,7 +207,9 @@ function App() {
             >
               A
             </motion.span>{" "}
-            Frontend Developer
+            passionate <span className="text-white">Full Stack Developer</span>{" "}
+            <br />
+            who has a thing for Typescript and GraphQL ❤️
           </motion.p>
 
           <motion.p
@@ -176,7 +247,7 @@ function App() {
           </motion.div>
           <motion.div
             variants={variants}
-            className="md:flex hidden space-x-12 md:absolute md:bottom-10 lg:bottom-20"
+            className="md:flex hidden space-x-12 md:absolute md:bottom-10 lg:bottom-2"
           >
             <IconLinks
               icon={faGithub}
@@ -192,6 +263,44 @@ function App() {
         </motion.div>
       </div>
       <div className="xl:w-7/12 md:w-1/2 projects-bg pb-8">
+        <motion.div
+          initial={"initial"}
+          animate={"animate"}
+          variants={variants}
+          className="md:pt-28 md:ml-12 sm:w-11/12 pl-4 pr-4 md:mr-12 pt-8"
+        >
+          <motion.p
+            variants={variants}
+            className="text-gray-200  heading text-6xl tracking-wide  leading-tight"
+          >
+            <motion.span
+              variants={variants}
+              className="border-b-4 border-gray-200"
+            >
+              W
+            </motion.span>
+            ork
+          </motion.p>
+          <motion.div
+            variants={variants}
+            initial={"initial"}
+            animate={"animate"}
+            className="space-y-8 md:mt-16 mt-8"
+          >
+            {works.map((work) => (
+              <motion.div variants={variants}>
+                <WorkCard
+                  companyName={work.companyName}
+                  position={work.position}
+                  description={work.description}
+                  startDate={work.startDate}
+                  endDate={work.endDate}
+                  website={work.website}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
         <motion.div
           initial={"initial"}
           animate={"animate"}
